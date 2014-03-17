@@ -23,10 +23,34 @@
         /* var position       = new OpenLayers.LonLat( 13.41,52.52 ).transform( fromProjection, toProjection ); */
         var zoom           = 15; 
 
-
-
-
         map.addLayer( mapnik );
+
+        var academicBuilds      = new OpenLayers.Layer.Markers();
+        var residentialBuilds   = new OpenLayers.Layer.Markers();
+        var academicLots        = new OpenLayers.Layer.Markers();
+        var residentialLots     = new OpenLayers.Layer.Markers();
+        var visitorParks        = new OpenLayers.Layer.Markers();
+        var food                = new OpenLayers.Layer.Markers();
+        var shopping            = new OpenLayers.Layer.Markers();
+        var bikeRacks           = new OpenLayers.Layer.Markers();
+        var busStops            = new OpenLayers.Layer.Markers();
+        var womens              = new OpenLayers.Layer.Markers();
+        var mens                = new OpenLayers.Layer.Markers();
+        var atms                = new OpenLayers.Layer.Markers();
+        
+        map.addLayer( academicBuilds );
+        map.addLayer( residentialBuilds );
+        map.addLayer( academicLots );
+        map.addLayer( residentialLots );
+        map.addLayer( visitorParks );
+        map.addLayer( food );
+        map.addLayer( shopping );
+        map.addLayer( bikeRacks );
+        map.addLayer( busStops  );
+        map.addLayer( womens );
+        map.addLayer( mens );
+        map.addLayer( atms );
+        
         map.setCenter( position, zoom );
     });
     </script>
