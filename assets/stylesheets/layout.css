@@ -1,0 +1,194 @@
+/**
+ * SASS/SCSS/Compass Transcription of Skeleton Responsive Grid
+ * originally authored by Dave Gamache. This translation offers
+ * mixins that support fluid and as well as fixed grids to supplement
+ * the work that Dave Gamache has done.
+ * @author Dennis Thompson <http://www.atomicpages.net>
+ * @copyright Copyright (c) 2013 AtomicPages LLC
+ * @license MIT
+ * @version 1.6.1
+ */
+/* TYPOGRAPHY (Baseline Corrections)
+--------------------------------------------------- */
+/* line 21, ../sass/layout.scss */
+h1 {
+  line-height: 49px;
+  margin-bottom: 14px;
+}
+
+/* line 22, ../sass/layout.scss */
+h2 {
+  line-height: 42px;
+  margin-bottom: 7px;
+}
+
+/* line 23, ../sass/layout.scss */
+h3 {
+  line-height: 35px;
+  margin-bottom: 7px;
+}
+
+/* line 24, ../sass/layout.scss */
+h4 {
+  line-height: 28px;
+  margin-bottom: 7px;
+}
+
+/* line 25, ../sass/layout.scss */
+h5 {
+  line-height: 21px;
+}
+
+/* line 27, ../sass/layout.scss */
+p {
+  margin: 0 0 21px 0;
+}
+
+/* line 28, ../sass/layout.scss */
+p.lead {
+  line-height: 28px;
+}
+
+/* BLOCKQUOTES (Baseline Corrections)
+--------------------------------------------------- */
+/* line 33, ../sass/layout.scss */
+blockquote, blockquote p {
+  line-height: 21px;
+}
+
+/* line 34, ../sass/layout.scss */
+blockquote {
+  margin: 0 0 21px;
+  padding: 7px 28px 0 19px;
+}
+
+/* line 36, ../sass/layout.scss */
+hr {
+  margin: 14px 0 28px;
+}
+
+/* LISTS (Baseline Corrections)
+--------------------------------------------------- */
+/* line 41, ../sass/layout.scss */
+ul, ol {
+  margin-bottom: 21px;
+}
+
+/* line 42, ../sass/layout.scss */
+li {
+  line-height: 21px;
+  margin-bottom: 14px;
+}
+
+/* line 44, ../sass/layout.scss */
+.row {
+  margin-bottom: 21px;
+}
+
+/* SITE STYLES
+ * ------------------------------------------------ */
+/* Add site styles here */
+/* For example: a { color: #000; } */
+/* line 54, ../sass/layout.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 58, ../sass/layout.scss */
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 63, ../sass/layout.scss */
+aside {
+  position: absolute;
+  top: 70px;
+  left: 12px;
+  padding-bottom: 7px;
+  float: left;
+  width: 180px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px #333333;
+  -moz-box-shadow: 0px 0px 5px #333333;
+  box-shadow: 0px 0px 5px #333333;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border-bottom: 3px solid grey;
+  z-index: 999;
+}
+/* line 76, ../sass/layout.scss */
+aside label {
+  padding: 0px 7px;
+  font-weight: 200;
+}
+/* line 79, ../sass/layout.scss */
+aside label input {
+  margin: 3px 7px 3px 0px;
+  position: relative;
+  top: 1px;
+}
+/* line 86, ../sass/layout.scss */
+aside h5 {
+  font-weight: 200;
+  background-color: #ff9135;
+  border-bottom: 3px solid #c9732a;
+  padding: 4px 7px;
+}
+/* line 92, ../sass/layout.scss */
+aside h5:after {
+  content: "";
+  float: right;
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/down.png");
+}
+/* line 99, ../sass/layout.scss */
+aside h5.first {
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+/* line 102, ../sass/layout.scss */
+aside h5.margin {
+  margin-top: 7px;
+}
+
+/* PAGE STYLES
+ * ------------------------------------------------ */
+/* Add page styles here */
+/* For example: .page-home { background: rgba(0, 0, 0, 0.4); } */
+/* MEDIA QUERIES
+ * ------------------------------------------------ */
+/* Otherwise known as custom responsive code! Write it here! */
+@media only screen and (min-width: 960px) and (max-width: 1280px) {
+  /* add code here */
+}
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  /* add code here */
+}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  /* add code here */
+}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+  /* add code here */
+}
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  /* add code here */
+}
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  /* add code here */
+}
