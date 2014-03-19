@@ -14,71 +14,311 @@
     <script src="http://www.openlayers.org/api/OpenLayers.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript">
+
+    function addMarker(layer, lat, lon, icon){
+        layer.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(lat,lon),icon.clone()));
+    }
+
+    function toggleVisibility(map, layer){
+        thisLayer = map.getLayersByName(layer)[0];
+
+        if(thisLayer != null){
+            if(thisLayer.getVisibility()){
+                thisLayer.setVisibility(false);
+            }
+            else{
+                thisLayer.setVisibility(true);
+            }
+        }
+        else{
+            alert("Layer not found");
+        }
+    }
+
     $(document).ready(function() {
         map                = new OpenLayers.Map( "basicMap" );
         
         var mapnik         = new OpenLayers.Layer.OSM();
         map.addLayer( mapnik );
         
-        var size = new OpenLayers.Size(21,25);
-        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
 
         var academicBuilds      = new OpenLayers.Layer.Markers();
-        // academicBuilds.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(0,0),icon));
+        academicBuilds.setName("academicBuilds");
+        academicBuilds.setVisibility(false);
+        var size = new OpenLayers.Size(20,20);
+        var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+        addMarker(academicBuilds, -8647283.711675,  5324651.0521496,      icon);
+        addMarker(academicBuilds, -8647290.8776464, 5324832.5900917,      icon);
+        addMarker(academicBuilds, -8647532.1320169, 5324862.4483059,      icon);
+        addMarker(academicBuilds, -8647325.5131749, 5324930.5250342,      icon);
+        addMarker(academicBuilds, -8647074.7041758, 5324788.3999348,      icon);
+        addMarker(academicBuilds, -8647178.6107611, 5324836.1730774,      icon);
+        addMarker(academicBuilds, -8646995.8784904, 5324696.4366351,      icon);
+        addMarker(academicBuilds, -8647170.2504612, 5324711.9629065,      icon);
+        addMarker(academicBuilds, -8646977.9635619, 5324593.7243784,      icon);
+        addMarker(academicBuilds, -8647100.38224,   5324602.0846783,      icon);
+        addMarker(academicBuilds, -8647164.8759826, 5324539.3824285,      icon);
+        addMarker(academicBuilds, -8647123.6716472, 5324467.7227145,      icon);
+        addMarker(academicBuilds, -8646902.7208623, 5324831.9929273,      icon);
+        addMarker(academicBuilds, -8646974.3805763, 5324928.7335412,      icon);
+        addMarker(academicBuilds, -8646860.9193625, 5324960.9804125,      icon);
+        addMarker(academicBuilds, -8647031.7083475, 5325055.3323693,      icon);
+        addMarker(academicBuilds, -8646782.6908412, 5324876.7802486,      icon);
+        addMarker(academicBuilds, -8645998.6141371, 5325250.6050901,      icon);
+        addMarker(academicBuilds, -8647139.1979184, 5325012.9337054,      icon); 
         map.addLayer( academicBuilds );
         
         var residentialBuilds   = new OpenLayers.Layer.Markers();
+        residentialBuilds.setName("residentialBuilds");
+        residentialBuilds.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+        addMarker(residentialBuilds, -8647548.8526168,  5324512.5100359,    icon);
+        addMarker(residentialBuilds, -8647624.0953166,  5324414.5750934,    icon);
+        addMarker(residentialBuilds, -8647602.5974023,  5324218.7052085,    icon);
+        addMarker(residentialBuilds, -8645990.2538372,  5324906.638463,     icon);
+        addMarker(residentialBuilds, -8645094.5074121,  5325023.6826625,    icon);
+        addMarker(residentialBuilds, -8644748.1521277,  5324591.3357213,    icon);
         map.addLayer( residentialBuilds );
         
         var academicLots        = new OpenLayers.Layer.Markers();
+        academicLots.setName("academicLots");
+        academicLots.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);
+        addMarker(academicLots, -8647113.0789913,   5324377.2383051, icon); 
+        addMarker(academicLots, -8647334.0297762,   5324327.0765053, icon); 
+        addMarker(academicLots, -8647334.0297762,   5324327.0765053, icon); 
+        addMarker(academicLots, -8647340.001419,    5325120.1106736, icon); 
+        addMarker(academicLots, -8647085.6094343,   5325176.2441163, icon); 
+        addMarker(academicLots, -8646867.0473066,   5325181.0214305, icon); 
+        addMarker(academicLots, -8647061.7228629,   5325434.2190867, icon); 
+        addMarker(academicLots, -8646865.852978,    5325442.5793867, icon); 
+        addMarker(academicLots, -8646523.0806793,   5325401.9722154, icon); 
+        addMarker(academicLots, -8646562.493522,    5325176.2441163, icon); 
+        addMarker(academicLots, -8646136.1182237,   5325114.1390308, icon); 
+        addMarker(academicLots, -8645818.4268249,   5325232.3775589, icon); 
+        addMarker(academicLots, -8646661.4664917,   5324426.5183791, icon);
+        addMarker(academicLots, -8647541.6866454,   5325090.5650621, icon);  
         map.addLayer( academicLots );
         
         var residentialLots     = new OpenLayers.Layer.Markers();
+        residentialLots.setName("residentialLots");
+        residentialLots.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);
+        addMarker(residentialLots, -8645646.5857921,    5325009.947884,     icon); 
+        addMarker(residentialLots, -8645863.9535913,    5324689.8678281,    icon); 
+        addMarker(residentialLots, -8645983.3864479,    5324723.309028,     icon); 
+        addMarker(residentialLots, -8645486.5457642,    5324725.6976851,    icon); 
+        addMarker(residentialLots, -8645288.2872221,    5324728.0863422,    icon);
+        addMarker(residentialLots, -8645797.9669379,    5325003.3790769,    icon);
+        addMarker(residentialLots, -8645829.0194806,    5324967.5492199,    icon);
+        addMarker(residentialLots, -8645844.545752,     5324876.7802488,    icon);
+        addMarker(residentialLots, -8645913.8168089,    5324827.8127776,    icon);
+        addMarker(residentialLots, -8646045.1929512,    5324653.4408068,    icon);
+        addMarker(residentialLots, -8646178.9577507,    5324612.8336356,    icon);
         map.addLayer( residentialLots );
         
         var visitorParks        = new OpenLayers.Layer.Markers();
+        visitorParks.setName("visitorParks");
+        visitorParks.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);        
+        addMarker(visitorParks, -8647319.541532,    5324471.9028646, icon);
+        addMarker(visitorParks, -8645284.4056542,   5324725.1005208, icon);
+        addMarker(visitorParks, -8645614.0403386,   5325054.7352052, icon);
+        addMarker(visitorParks, -8645824.2421664,   5324715.5458923, icon);
         map.addLayer( visitorParks );
         
         var food                = new OpenLayers.Layer.Markers();
+        food.setName("food");
+        food.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://www.pegasusbus.com/wp-content/uploads/food-icon.png', size, offset);        
+        addMarker(food, -8647267.5882394,   5324552.5200428,    icon);
+        addMarker(food, -8647407.3246819,   5324639.7060283,    icon);
+        addMarker(food, -8647291.4748109,   5324857.6709917,    icon); 
+        addMarker(food, -8646746.8609844,   5324760.3332135,    icon); 
+        addMarker(food, -8646718.1970988,   5324767.4991849,    icon); 
+        addMarker(food, -8646681.7700776,   5324750.1814207,    icon); 
+        addMarker(food, -8646724.765906,    5324788.3999349,    icon); 
+        addMarker(food, -8646086.3972868,   5324720.9203708,    icon); 
+        addMarker(food, -8646079.2313154,   5324742.418285,     icon);
+        addMarker(food, -8645889.9302375,   5324900.6668201,    icon); 
+        addMarker(food, -8645869.0294876,   5324977.7010126,    icon);
+        addMarker(food, -8646049.9702655,   5325138.3382049,    icon); 
+        addMarker(food, -8646104.3122153,   5325144.3098477,    icon);   
         map.addLayer( food );
         
         var shopping            = new OpenLayers.Layer.Markers();
+        shopping.setName("shopping");
+        shopping.setVisibility(false);
+        var icon = new OpenLayers.Icon('https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/shopping_basket.png', size, offset);        
+        addMarker(shopping, -8647360.7458676,   5324574.6151213,  icon); 
+        addMarker(shopping, -8647395.9785603,   5324559.08885,    icon); 
+        addMarker(shopping, -8647409.1161745,   5324639.1088639,  icon); 
+        addMarker(shopping, -8646750.4439701,   5324783.0254563,  icon); 
+        addMarker(shopping, -8645891.7217305,   5324895.8895057,  icon); 
+        addMarker(shopping, -8645864.2521735,   5324976.506684,   icon); 
+        addMarker(shopping, -8645972.936073,    5325307.9328612,  icon); 
         map.addLayer( shopping );
         
         var bikeRacks           = new OpenLayers.Layer.Markers();
+        bikeRacks.setName("bikeRacks");
+        bikeRacks.setVisibility(false);
+        var icon = new OpenLayers.Icon('http://www.clker.com/cliparts/7/e/5/2/12065726201565395695johnny_automatic_NPS_map_pictographs_part_9.svg.med.png', size, offset);        
+        addMarker(bikeRacks, -8647420.4622959,  5324900.0696557,  icon); 
+        addMarker(bikeRacks, -8647386.4239318,  5324871.4057701,  icon); 
+        addMarker(bikeRacks, -8647315.361382,   5324878.5717415,  icon); 
+        addMarker(bikeRacks, -8647305.2095892,  5324873.7944272,  icon); 
+        addMarker(bikeRacks, -8647283.711675,   5324928.7335413,  icon); 
+        addMarker(bikeRacks, -8647293.8634678,  5324934.7051841,  icon); 
+        addMarker(bikeRacks, -8647291.4748107,  5324945.4541412,  icon); 
+        addMarker(bikeRacks, -8647320.1386962,  5324880.3632345,  icon); 
+        addMarker(bikeRacks, -8647278.9343606,  5324677.9245425,  icon); 
+        addMarker(bikeRacks, -8647268.7825678,  5324711.9629066,  icon); 
+        addMarker(bikeRacks, -8647259.8251036,  5324725.1005208,  icon); 
+        addMarker(bikeRacks, -8647231.161218,   5324733.4608208,  icon); 
+        addMarker(bikeRacks, -8647234.1470394,  5324712.5600709,  icon); 
+        addMarker(bikeRacks, -8647264.6024178,  5324584.16975,    icon); 
+        addMarker(bikeRacks, -8647276.5457035,  5324584.7669142,  icon); 
+        addMarker(bikeRacks, -8647298.640782,   5324573.4207929,  icon); 
+        addMarker(bikeRacks, -8647305.2095891,  5324573.4207929,  icon); 
+        addMarker(bikeRacks, -8647312.3755605,  5324573.4207929,  icon); 
+        addMarker(bikeRacks, -8647336.8592961,  5324555.5058644,  icon); 
+        addMarker(bikeRacks, -8647333.8734747,  5324529.2306359,  icon); 
+        addMarker(bikeRacks, -8647153.5298611,  5324504.7469003,  icon); 
+        addMarker(bikeRacks, -8647096.2020899,  5324705.3940995,  icon); 
+        addMarker(bikeRacks, -8647095.0077614,  5324726.2948494,  icon); 
+        addMarker(bikeRacks, -8647057.9835758,  5324760.3332136,  icon); 
+        addMarker(bikeRacks, -8647010.8075974,  5324773.4708278,  icon); 
+        addMarker(bikeRacks, -8647009.6132688,  5324790.788592,   icon); 
+        addMarker(bikeRacks, -8647009.6132688,  5324842.7418847,  icon); 
+        addMarker(bikeRacks, -8647014.9877474,  5324860.0596489,  icon); 
+        addMarker(bikeRacks, -8647022.7508831,  5324897.0838345,  icon); 
+        addMarker(bikeRacks, -8647096.2020899,  5324910.2214487,  icon); 
+        addMarker(bikeRacks, -8647121.2829898,  5324920.9704058,  icon); 
+        addMarker(bikeRacks, -8647081.8701471,  5325001.5875841,  icon); 
+        addMarker(bikeRacks, -8647085.4531328,  5325022.488334,   icon); 
+        addMarker(bikeRacks, -8647003.641626,   5325054.7352053,  icon); 
+        addMarker(bikeRacks, -8646940.9393762,  5324992.6301198,  icon); 
+        addMarker(bikeRacks, -8646946.3138548,  5325000.3932555,  icon); 
+        addMarker(bikeRacks, -8646952.882662,   5324594.918707,   icon); 
+        addMarker(bikeRacks, -8646921.8301193,  5324582.9754213,  icon); 
+        addMarker(bikeRacks, -8646918.2471336,  5324654.6351353,  icon); 
+        addMarker(bikeRacks, -8646943.3280335,  5324658.218121,   icon); 
+        addMarker(bikeRacks, -8646926.6074335,  5324661.8011067,  icon);
+        addMarker(bikeRacks, -8646926.6074335,  5324717.9345493,  icon); 
+        addMarker(bikeRacks, -8646902.7208622,  5324723.9061922,  icon); 
+        addMarker(bikeRacks, -8646870.4739909,  5324722.7118636,  icon); 
+        addMarker(bikeRacks, -8646845.393091,   5324720.3232065,  icon); 
+        addMarker(bikeRacks, -8646820.3121911,  5324752.5700778,  icon);
+        addMarker(bikeRacks, -8646810.7575626,  5324805.1205347,  icon);
+        addMarker(bikeRacks, -8646932.5790764,  5324803.9262061,  icon);   
+        addMarker(bikeRacks, -8646934.9677335,  5324829.007106,   icon); 
+        addMarker(bikeRacks, -8646960.0486334,  5324833.7844203,  icon); 
+        addMarker(bikeRacks, -8646872.862648,   5324868.4199487,  icon); 
+        addMarker(bikeRacks, -8646846.5874196,  5324923.3590628,  icon); 
+        addMarker(bikeRacks, -8646851.3647338,  5324928.1363771,  icon); 
+        addMarker(bikeRacks, -8646827.4781625,  5324932.3165271,  icon); 
+        addMarker(bikeRacks, -8646808.3689054,  5324931.1221985,  icon); 
+        addMarker(bikeRacks, -8646810.7575626,  5325070.8586408,  icon); 
+        addMarker(bikeRacks, -8646737.90352,    5324735.2523136,  icon); 
+        addMarker(bikeRacks, -8646728.3488914,  5324732.8636564,  icon); 
+        addMarker(bikeRacks, -8646642.3572346,  5324728.0863422,  icon); 
+        addMarker(bikeRacks, -8646648.3288775,  5324810.4950133,  icon); 
+        addMarker(bikeRacks, -8646653.1061917,  5324823.6326275,  icon); 
+        addMarker(bikeRacks, -8646669.8267917,  5324824.8269561,  icon); 
+        addMarker(bikeRacks, -8646657.883506,   5324845.1305417,  icon); 
+        addMarker(bikeRacks, -8646557.5599064,  5324861.8511417,  icon); 
+        addMarker(bikeRacks, -8646556.3655778,  5324932.3165271,  icon); 
+        addMarker(bikeRacks, -8646509.7867637,  5324817.6609847,  icon); 
+        addMarker(bikeRacks, -8646428.5724212,  5324814.6751633,  icon); 
+        addMarker(bikeRacks, -8646441.1128712,  5324776.4566492,  icon);
+        addMarker(bikeRacks, -8646136.5590866,  5324769.8878421,  icon); 
+        addMarker(bikeRacks, -8646153.8768509,  5324791.3857563,  icon); 
+        addMarker(bikeRacks, -8646133.5732652,  5324814.6751633,  icon); 
+        addMarker(bikeRacks, -8646147.905208,   5324826.0212847,  icon);  
+        addMarker(bikeRacks, -8646063.7050441,  5324817.6609847,  icon); 
+        addMarker(bikeRacks, -8646063.7050441,  5324817.6609847,  icon); 
+        addMarker(bikeRacks, -8646003.9886157,  5324820.0496419,  icon); 
+        addMarker(bikeRacks, -8645998.6141372,  5324821.8411347,  icon); 
+        addMarker(bikeRacks, -8645993.8368229,  5324843.3390489,  icon); 
+        addMarker(bikeRacks, -8646004.58578,    5324840.9503918,  icon);  
+        addMarker(bikeRacks, -8645993.2396586,  5324854.088006,   icon); 
+        addMarker(bikeRacks, -8646029.6666799,  5324734.0579851,  icon); 
+        addMarker(bikeRacks, -8646070.8710154,  5324829.6042704,  icon); 
+        addMarker(bikeRacks, -8645995.0311514,  5324877.377413,   icon); 
+        addMarker(bikeRacks, -8645996.8226443,  5324937.0938414,  icon); 
+        addMarker(bikeRacks, -8645943.6750231,  5324915.5959272,  icon); 
+        addMarker(bikeRacks, -8645947.2580088,  5324932.3165271,  icon); 
+        addMarker(bikeRacks, -8645940.6892017,  5324940.6768271,  icon); 
+        addMarker(bikeRacks, -8645942.4806945,  5324882.1547273,  icon); 
+        addMarker(bikeRacks, -8645940.6892017,  5324962.7719056,  icon); 
+        addMarker(bikeRacks, -8645891.7217304,  5324974.118027,   icon); 
+        addMarker(bikeRacks, -8645905.4565089,  5325007.5592268,  icon); 
+        addMarker(bikeRacks, -8645888.1387447,  5325020.6968411,  icon); 
+        addMarker(bikeRacks, -8645937.106216,   5325018.3081839,  icon); 
+        addMarker(bikeRacks, -8645960.9927873,  5325050.5550552,  icon); 
+        addMarker(bikeRacks, -8645971.7417444,  5325060.1096838,  icon); 
+        addMarker(bikeRacks, -8645884.555759,   5325070.8586409,  icon); 
+        addMarker(bikeRacks, -8646036.8326513,  5325092.9537194,  icon); 
+        addMarker(bikeRacks, -8646034.4439941,  5325114.4516336,  icon); 
+        addMarker(bikeRacks, -8645977.1162229,  5325112.6601407,  icon); 
+        addMarker(bikeRacks, -8645975.3247301,  5325123.4090978,  icon); 
+        addMarker(bikeRacks, -8646033.8468299,  5325158.0446262,  icon); 
+        addMarker(bikeRacks, -8645996.22548,    5325181.9311976,  icon); 
+        addMarker(bikeRacks, -8645983.6850301,  5325167.5992548,  icon); 
+        addMarker(bikeRacks, -8645975.9218944,  5325180.1397047,  icon); 
+        addMarker(bikeRacks, -8645960.9927873,  5325174.7652262,  icon); 
+        addMarker(bikeRacks, -8645944.2721874,  5325175.3623905,  icon); 
+        addMarker(bikeRacks, -8646523.5215423,  5325039.8060982,  icon); 
         map.addLayer( bikeRacks );
         
         var busStops            = new OpenLayers.Layer.Markers();
+        busStops.setName("busStops"); 
+        busStops.setVisibility(false);
+        var size = new OpenLayers.Size(22,30);
+        var icon = new OpenLayers.Icon('http://www.niagararegion.ca/transit/images/bus-marker-icon.png', size, offset);        
+        addMarker(busStops, -8646846.5874196,   5324628.3599069,    icon); 
+        addMarker(busStops, -8645918.295541,    5324798.2531455,    icon); 
+        addMarker(busStops, -8644894.7559592,   5324618.5066962,    icon); 
+        addMarker(busStops, -8645063.1562871,   5325106.98708,      icon); 
+        addMarker(busStops, -8645007.0228444,   5325158.3432083,    icon); 
+        addMarker(busStops, -8644663.0562172,   5325155.9545512,    icon); 
+        addMarker(busStops, -8644739.4932455,   5325115.3473799,    icon); 
+        addMarker(busStops, -8644872.0637164,   5325393.625936,     icon); 
+        addMarker(busStops, -8644534.068732,    5325986.0129051,    icon); 
+        addMarker(busStops, -8644895.9502877,   5326033.7860478,    icon); 
         map.addLayer( busStops  );
-        
-        var womens              = new OpenLayers.Layer.Markers();
-        map.addLayer( womens );
-        
-        var mens                = new OpenLayers.Layer.Markers();
-        map.addLayer( mens );
-        
+
         var atms                = new OpenLayers.Layer.Markers();
-        atms.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(-8645875.0011304,5324914.9987629),icon));
-        atms.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(-8646471.5682495,5324952.0229485),icon.clone()));
-        atms.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(-8646693.1161986,5324753.1672421),icon.clone()));
-        atms.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(-8646762.9844199,5324829.0071062),icon.clone()));
-        atms.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(-8647347.0110891,5324550.72855),icon.clone()));
+        atms.setName("atms");
+        atms.setVisibility(false);
+        var size = new OpenLayers.Size(25,25);
+        var icon = new OpenLayers.Icon('assets/images/coin.png', size, offset);        
+        addMarker(atms, -8646471.5682495,   5324952.0229485,   icon);
+        addMarker(atms, -8646693.1161986,   5324753.1672421,   icon);
+        addMarker(atms, -8646762.9844199,   5324829.0071062,   icon);
+        addMarker(atms, -8647347.0110891,   5324550.72855,     icon);
+        console.log(atms.name);
         map.addLayer( atms );
         
         
         
         var fromProjection = new OpenLayers.Projection( "EPSG:4326" );   // Transform from WGS 1984
         var toProjection   = new OpenLayers.Projection( "EPSG:900913" ); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat( -77.68,43.08 ).transform( fromProjection, toProjection );
+        var position       = new OpenLayers.LonLat(-8646442.904364,5325159.8361191);
         /* var position       = new OpenLayers.LonLat( 13.41,52.52 ).transform( fromProjection, toProjection ); */
         var zoom           = 15; 
         map.setCenter( position, zoom );
 
         map.events.register("click", map, function(e){
             var position = map.getLonLatFromPixel(e.xy);
-            console.log(position);
+            new OpenLayers.Marker(new OpenLayers.LonLat(position.lon,position.lat),icon.clone());
+            console.log("addMarker(x, " + position.lon + "," + position.lat + ", icon);");
         });
+
+        $("input").click(function(e){
+            toggleVisibility(map, e.target.id);
+        })
     });
 
 
@@ -90,24 +330,22 @@
 <body id='basicMap'>
     <aside>
         <h5 class='first'>Buildings</h5>
-        <label><input type="checkbox" value="Academic Buildings"/>Academic Buildings</label>
-        <label><input type="checkbox" value="Residential Buildings"/>Residential Buildings</label>
+        <label><input type="checkbox" id="academicBuilds" value="Academic Buildings" />Academic</label>
+        <label><input type="checkbox" id="residentialBuilds" value="Residential Buildings" />Residential</label>
 
         <h5 class='margin'>Parking</h5>
-        <label><input type="checkbox" value="Academic Lots"/>Academic Lots</label>
-        <label><input type="checkbox" value="Residential Lots"/>Residential Lots</label>
-        <label><input type="checkbox" value="Visitor Parking"/>Visitor Parking</label>
+        <label><input type="checkbox" id="academicLots" value="Academic Lots" />Academic</label>
+        <label><input type="checkbox" id="residentialLots" value="Residential Lots" />Residential</label>
+        <label><input type="checkbox" id="visitorParks" value="Visitor Parking" />Visitor</label>
 
         <h5 class='margin'>Retail</h5>
-        <label><input type="checkbox" value="Food"/>Food</label>
-        <label><input type="checkbox" value="Shopping"/>Shopping</label>
+        <label><input type="checkbox" id="food" value="Food" />Food</label>
+        <label><input type="checkbox" id="shopping" value="Shopping" />Shopping</label>
 
         <h5 class='margin'>Misc</h5>
-        <label><input type="checkbox" value="Bike Racks"/>Bike Racks</label>
-        <label><input type="checkbox" value="Bus Stops"/>Bus Stops</label>
-        <label><input type="checkbox" value="Women's Restrooms"/>Women's Restrooms</label>
-        <label><input type="checkbox" value="Men's Restrooms"/>Men's Restrooms</label>
-        <label><input type="checkbox" value="ATMs"/>ATMs</label>
+        <label><input type="checkbox" id="bikeRacks" value="Bike Racks" />Bike Racks</label>
+        <label><input type="checkbox" id="busStops" value="Bus Stops" />Bus Stops</label>
+        <label><input type="checkbox" id="atms" value="ATMs" />ATMs</label>
     </aside>
 </body>
 </html>
