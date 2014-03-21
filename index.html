@@ -35,6 +35,7 @@
         }
     }
 
+    
     $(document).ready(function() {
         map                = new OpenLayers.Map( "basicMap" );
         
@@ -45,9 +46,9 @@
         var academicBuilds      = new OpenLayers.Layer.Markers();
         academicBuilds.setName("academicBuilds");
         academicBuilds.setVisibility(false);
-        var size = new OpenLayers.Size(20,20);
+        var size = new OpenLayers.Size(24,31);
         var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+        var icon = new OpenLayers.Icon('assets/images/buildings.png', size, offset);
         addMarker(academicBuilds, -8647283.711675,  5324651.0521496,      icon);
         addMarker(academicBuilds, -8647290.8776464, 5324832.5900917,      icon);
         addMarker(academicBuilds, -8647532.1320169, 5324862.4483059,      icon);
@@ -72,7 +73,7 @@
         var residentialBuilds   = new OpenLayers.Layer.Markers();
         residentialBuilds.setName("residentialBuilds");
         residentialBuilds.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://www.openlayers.org/dev/img/marker.png', size, offset);
+        var icon = new OpenLayers.Icon('assets/images/buildings.png', size, offset);
         addMarker(residentialBuilds, -8647548.8526168,  5324512.5100359,    icon);
         addMarker(residentialBuilds, -8647624.0953166,  5324414.5750934,    icon);
         addMarker(residentialBuilds, -8647602.5974023,  5324218.7052085,    icon);
@@ -84,7 +85,7 @@
         var academicLots        = new OpenLayers.Layer.Markers();
         academicLots.setName("academicLots");
         academicLots.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);
+        var icon = new OpenLayers.Icon('assets/images/parking.png', size, offset);
         addMarker(academicLots, -8647113.0789913,   5324377.2383051, icon); 
         addMarker(academicLots, -8647334.0297762,   5324327.0765053, icon); 
         addMarker(academicLots, -8647334.0297762,   5324327.0765053, icon); 
@@ -104,7 +105,7 @@
         var residentialLots     = new OpenLayers.Layer.Markers();
         residentialLots.setName("residentialLots");
         residentialLots.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);
+        var icon = new OpenLayers.Icon('assets/images/parking.png', size, offset);
         addMarker(residentialLots, -8645646.5857921,    5325009.947884,     icon); 
         addMarker(residentialLots, -8645863.9535913,    5324689.8678281,    icon); 
         addMarker(residentialLots, -8645983.3864479,    5324723.309028,     icon); 
@@ -121,7 +122,7 @@
         var visitorParks        = new OpenLayers.Layer.Markers();
         visitorParks.setName("visitorParks");
         visitorParks.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://info.jmu.edu/eventmanagement/files/2011/08/parking.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/parking.png', size, offset);        
         addMarker(visitorParks, -8647319.541532,    5324471.9028646, icon);
         addMarker(visitorParks, -8645284.4056542,   5324725.1005208, icon);
         addMarker(visitorParks, -8645614.0403386,   5325054.7352052, icon);
@@ -131,7 +132,7 @@
         var food                = new OpenLayers.Layer.Markers();
         food.setName("food");
         food.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://www.pegasusbus.com/wp-content/uploads/food-icon.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/dining.png', size, offset);        
         addMarker(food, -8647267.5882394,   5324552.5200428,    icon);
         addMarker(food, -8647407.3246819,   5324639.7060283,    icon);
         addMarker(food, -8647291.4748109,   5324857.6709917,    icon); 
@@ -150,7 +151,7 @@
         var shopping            = new OpenLayers.Layer.Markers();
         shopping.setName("shopping");
         shopping.setVisibility(false);
-        var icon = new OpenLayers.Icon('https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/512/shopping_basket.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/atm.png', size, offset);        
         addMarker(shopping, -8647360.7458676,   5324574.6151213,  icon); 
         addMarker(shopping, -8647395.9785603,   5324559.08885,    icon); 
         addMarker(shopping, -8647409.1161745,   5324639.1088639,  icon); 
@@ -163,7 +164,7 @@
         var bikeRacks           = new OpenLayers.Layer.Markers();
         bikeRacks.setName("bikeRacks");
         bikeRacks.setVisibility(false);
-        var icon = new OpenLayers.Icon('http://www.clker.com/cliparts/7/e/5/2/12065726201565395695johnny_automatic_NPS_map_pictographs_part_9.svg.med.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/bike.png', size, offset);        
         addMarker(bikeRacks, -8647420.4622959,  5324900.0696557,  icon); 
         addMarker(bikeRacks, -8647386.4239318,  5324871.4057701,  icon); 
         addMarker(bikeRacks, -8647315.361382,   5324878.5717415,  icon); 
@@ -275,8 +276,7 @@
         var busStops            = new OpenLayers.Layer.Markers();
         busStops.setName("busStops"); 
         busStops.setVisibility(false);
-        var size = new OpenLayers.Size(22,30);
-        var icon = new OpenLayers.Icon('http://www.niagararegion.ca/transit/images/bus-marker-icon.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/bus.png', size, offset);        
         addMarker(busStops, -8646846.5874196,   5324628.3599069,    icon); 
         addMarker(busStops, -8645918.295541,    5324798.2531455,    icon); 
         addMarker(busStops, -8644894.7559592,   5324618.5066962,    icon); 
@@ -292,8 +292,7 @@
         var atms                = new OpenLayers.Layer.Markers();
         atms.setName("atms");
         atms.setVisibility(false);
-        var size = new OpenLayers.Size(25,25);
-        var icon = new OpenLayers.Icon('assets/images/coin.png', size, offset);        
+        var icon = new OpenLayers.Icon('assets/images/atm.png', size, offset);        
         addMarker(atms, -8646471.5682495,   5324952.0229485,   icon);
         addMarker(atms, -8646693.1161986,   5324753.1672421,   icon);
         addMarker(atms, -8646762.9844199,   5324829.0071062,   icon);
@@ -305,10 +304,10 @@
         
         var fromProjection = new OpenLayers.Projection( "EPSG:4326" );   // Transform from WGS 1984
         var toProjection   = new OpenLayers.Projection( "EPSG:900913" ); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(-8646442.904364,5325159.8361191);
+        var origPosition       = new OpenLayers.LonLat(-8646442.904364,5325159.8361191);
         /* var position       = new OpenLayers.LonLat( 13.41,52.52 ).transform( fromProjection, toProjection ); */
         var zoom           = 15; 
-        map.setCenter( position, zoom );
+        map.setCenter( origPosition, zoom );
 
         map.events.register("click", map, function(e){
             var position = map.getLonLatFromPixel(e.xy);
@@ -316,9 +315,13 @@
             console.log("addMarker(x, " + position.lon + "," + position.lat + ", icon);");
         });
 
-        $("input").click(function(e){
+        $("input[type='checkbox']").click(function(e){
             toggleVisibility(map, e.target.id);
         })
+    
+        $("#reset").click(function(){
+            map.setCenter( origPosition, zoom );
+        });
     });
 
 
@@ -346,6 +349,9 @@
         <label><input type="checkbox" id="bikeRacks" value="Bike Racks" />Bike Racks</label>
         <label><input type="checkbox" id="busStops" value="Bus Stops" />Bus Stops</label>
         <label><input type="checkbox" id="atms" value="ATMs" />ATMs</label>
+        <div class='buttonContainer'>
+            <input type='button' value='Recenter' id='reset'/>
+        </div>
     </aside>
 </body>
 </html>

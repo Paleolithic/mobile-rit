@@ -45,6 +45,20 @@ li { line-height: 21px; margin-bottom: 14px;}
     margin-bottom: 21px;
 }
 
+/* BUTTONS (Baseline Corrections)
+------------------------------------------------ */
+input[type="button"],input[type="submit"]{
+    background: none;
+    border: none;
+    text-shadow: none !important;
+}
+input[type="button"]:hover,input[type="submit"]:hover{
+    background: none;
+    border: none;
+    color: white;
+    text-shadow: none !important;
+
+}
 
 /* SITE STYLES
  * ------------------------------------------------ */
@@ -58,6 +72,27 @@ li { line-height: 21px; margin-bottom: 14px;}
 body,html{
     height: 100%;
     width: 100%;
+}
+
+.buttonContainer{
+    text-align: center;
+    padding: 14px 7px 0px 7px;
+
+}
+input[type="button"],input[type="submit"] {
+    @include border-radius(4px);
+    width: 100%;
+    background-color: $orange;
+    border-bottom: 3px solid $dorange;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px 14px;    
+    -webkit-appearance: none;
+}
+input[type="button"]:hover,input[type="submit"]:hover {
+    background-color: #C97A2C;
+    border-bottom: 3px solid $dorange;
 }
 
 aside{
@@ -85,17 +120,18 @@ aside{
 
     h5{
         font-weight: 200;
+        color: white;
         background-color: $orange;
         border-bottom: 3px solid $dorange;
         padding: 4px 7px;
     }
-    h5:after{
-        content: "";
-        float: right;
-        width: 20px;
-        height: 20px;
-        background-image: url('../images/down.png');
-    }
+    // h5:after{
+    //     content: "";
+    //     float: right;
+    //     width: 20px;
+    //     height: 20px;
+    //     background-image: url('../images/down.png');
+    // }
     h5.first{
         @include border-top-radius(4px);
     }
